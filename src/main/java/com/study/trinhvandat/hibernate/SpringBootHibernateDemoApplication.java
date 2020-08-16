@@ -1,4 +1,4 @@
-package com.studt.trinhvandat.springboothibernatedemo;
+package com.study.trinhvandat.hibernate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
