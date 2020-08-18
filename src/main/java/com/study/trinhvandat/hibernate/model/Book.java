@@ -29,6 +29,35 @@ public class Book {
     @Column(name = "amount")
     private int amountOfBook;
 
+    @Column(name = "userid")
+    private int userId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return bookId == book.bookId &&
+                yearOfBook == book.yearOfBook &&
+                amountOfBook == book.amountOfBook &&
+                userId == book.userId &&
+                Objects.equals(bookName, book.bookName) &&
+                Objects.equals(authorOfBook, book.authorOfBook);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookId, bookName, authorOfBook, yearOfBook, amountOfBook, userId);
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public Book() {
     }
 
@@ -72,20 +101,4 @@ public class Book {
         this.amountOfBook = amountOfBook;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Book)) return false;
-        Book book = (Book) o;
-        return bookId == book.bookId &&
-                yearOfBook == book.yearOfBook &&
-                amountOfBook == book.amountOfBook &&
-                Objects.equals(bookName, book.bookName) &&
-                Objects.equals(authorOfBook, book.authorOfBook);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookId, bookName, authorOfBook, yearOfBook, amountOfBook);
-    }
 }
